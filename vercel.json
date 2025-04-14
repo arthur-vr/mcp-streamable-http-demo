@@ -1,6 +1,5 @@
 {
 	"version": 2,
-	"root": "dist",
 	"builds": [
 		{
 		  "src": "dist/server.js",

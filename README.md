@@ -1,14 +1,16 @@
 # mcp-streamable-http-demo
 
-## setup
+## Setup
 
 ```
+rename .env.example to .env
+
 pnpm install
 pnpm dev:server //localhost:3000
 pnpm dev:client
 ```
 
-## deploy on vercel
+## Deploy on vercel
 
 ```
 pnpm vercel:login // choose root directory /
@@ -21,8 +23,16 @@ Root Directory /
 ![Root Directory Setting](./docs/images/vercel-root-directory.png)
 
 
-## Use in Sugoi Search
+## Test remote endpoints
 
+modify .env 
+
+MCP_SERVER_URL=https://[YOUR_SERVER_ADDRESS]
+
+then, `pnpm dev:client`
+
+
+## Use in Sugoi Search
 
 Set https://[your-remote-server or local]/mcp endpoint
 

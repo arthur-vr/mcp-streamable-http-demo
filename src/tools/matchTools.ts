@@ -1,5 +1,6 @@
-import { executeCalculatorTool } from "./calculatorTool.js";
-import { executeSmileyTool } from "./smileyTool.js";
+import { executeCalculatorTool } from "./single/calculatorTool.js";
+import { executeSmileyTool } from "./single/smileyTool.js";
+import { executeUidTool } from "./single/uidTool.js";
 
 export const matchTools = (toolName: string, args: unknown) => {
     if (toolName === 'calculator') {
@@ -8,5 +9,8 @@ export const matchTools = (toolName: string, args: unknown) => {
     if (toolName === 'smiley') {
         return executeSmileyTool(args);
     }
-    throw new Error(`Unknown tool: ${toolName}`);
+    if (toolName === 'uid') {
+        return executeUidTool(args);
+    }
+    throw new Error(`Moidfy matchTools.ts to add new tool: ${toolName}`);
 }

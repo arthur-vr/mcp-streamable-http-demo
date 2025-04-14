@@ -12,6 +12,7 @@
     "start:server": "tsx dist/server.js",
     "start:client": "tsx dist/client.js",
     "vercel:login": "vercel login",
+    "vercel:env:add": "vercel env add",
     "dev:vercel": "pnpm build && vercel dev",
     "deploy:vercel": "vercel --prod",
     "postinstall": "tsx bin/fix-package-error.ts",
@@ -26,11 +27,13 @@
   "dependencies": {
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
-    "express": "^5.1.0",
-    "zod": "^3.22.4",
-    "zod-to-json-schema": "^3.22.3",
+    "dotenv": "^16.5.0",
     "eventsource-parser": "^1.1.2",
-    "pkce-challenge": "^1.0.0"
+    "express": "^5.1.0",
+    "pkce-challenge": "^1.0.0",
+    "uuid": "^11.1.0",
+    "zod": "^3.22.4",
+    "zod-to-json-schema": "^3.22.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
@@ -40,6 +43,6 @@
     "rimraf": "^6.0.1",
     "tsx": "^4.19.3",
     "typescript": "^5.4.5",
-     "vercel": "^41.6.0"
+    "vercel": "^41.6.0"
   }
 }
