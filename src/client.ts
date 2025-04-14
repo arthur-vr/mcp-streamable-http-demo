@@ -10,7 +10,7 @@ const contentsSchema = z.array(contentSchema)
 
 async function runClient() {
 
-  const serverUrl = process.env.MCP_SERVER_URL || 'http://localhost:8085/mcp';
+  const serverUrl = process.env.MCP_SERVER_URL || 'http://localhost:3000/mcp';
   
   console.log(`✨ Connecting to MCP server at: ${serverUrl}`);
   

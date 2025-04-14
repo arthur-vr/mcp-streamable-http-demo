@@ -1,18 +1,22 @@
-import { Server } from '@modelcontextprotocol/sdk/server/index.js';
-import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
+import { Server } from './mcp/esm/server/index.js';
+import { StreamableHTTPServerTransport } from './mcp/esm/server/streamableHttp.js';
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
-} from '@modelcontextprotocol/sdk/types.js';
+} from './mcp/esm/types.js';
 import bodyParser from 'body-parser';
 import express from 'express';
 import { tools } from './tools/index.js';
 import { matchTools } from './tools/matchTools.js';
 
 const app = express();
-const PORT = process.env.PORT || 8085;
-
+app.use(express.static('dist'));
+const PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
+
+app.get('/', async (req, res) => { 
+  res.send('Hello Mcp Http Remote Server!');
+});
 
 function createStatelessServer() {
 
@@ -141,13 +145,15 @@ app.delete('/mcp', async (req, res) => {
   }
 });
 
-process.on('SIGINT', async () => {
-  console.log('👋 Shutting down...');
-  process.exit(0);
-});
+// process.on('SIGINT', async () => {
+//   console.log('👋 Shutting down...');
+//   process.exit(0);
+// });
 
 
 app.listen(PORT, () => {
   console.log(`🌟 Server is running on port ${PORT}`);
   console.log(`🔗 MCP endpoint: http://localhost:${PORT}/mcp`);
 });
+
+export default app;
