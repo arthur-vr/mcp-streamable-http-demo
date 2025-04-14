@@ -3,14 +3,19 @@
   "version": "1.0.0",
   "description": "Demo of MCP Streamable HTTP protocol",
   "type": "module",
+  "main": "index.ts",
   "scripts": {
     "dev:server": "tsx watch src/server.ts",
     "dev:client": "tsx watch src/client.ts",
     "build": "tsc",
+    "start": "tsx src/server.ts",
     "start:server": "tsx dist/server.js",
     "start:client": "tsx dist/client.js",
+    "dev:login": "vercel login",
+    "dev:vercel": "pnpm build && vercel dev",
+    "deploy:vercel": "vercel --prod",
     "postinstall": "tsx bin/fix-package-error.ts",
-    "cleanup": "rimraf node_modules dist package-lock.json"
+    "cleanup": "rimraf dist package-lock.json node_modules"
   },
   "keywords": [
     "mcp",
@@ -19,8 +24,6 @@
   ],
   "author": "SmileyCat",
   "dependencies": {
-    "@mastra/core": "^0.8.2",
-    "@modelcontextprotocol/sdk": "github:modelcontextprotocol/typescript-sdk#main",
     "body-parser": "^2.2.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
@@ -34,6 +37,7 @@
     "fs": "0.0.1-security",
     "rimraf": "^6.0.1",
     "tsx": "^4.19.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+     "vercel": "^41.6.0"
   }
 }
