@@ -11,7 +11,7 @@
     "start": "tsx src/server.ts",
     "start:server": "tsx dist/server.js",
     "start:client": "tsx dist/client.js",
-    "dev:login": "vercel login",
+    "vercel:login": "vercel login",
     "dev:vercel": "pnpm build && vercel dev",
     "deploy:vercel": "vercel --prod",
     "postinstall": "tsx bin/fix-package-error.ts",

@@ -12,8 +12,8 @@ pnpm dev:client
 
 ```
 pnpm vercel:login // choose root directory /
-pnpm vercel:dev
-pnpm vercel:deploy
+pnpm dev:vercel
+pnpm deploy:vercel
 ```
 
 Root Directory /
